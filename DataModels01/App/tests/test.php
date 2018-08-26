@@ -8,10 +8,6 @@ $data = [':id' => 2];
 
 var_dump($db->query($sql, $data,\App\Db::class));
 
-//----------------------
-
-$query = 'INSERT INTO news.news (title, text, author) VALUES (:title, :text, :author)';
-
 $info = [
     ':title' => 'Новый заголовок',
     ':text' => 'Новый текст',
@@ -25,7 +21,7 @@ $db->execute($query, $info);
 $query = 'UPDATE news.news SET title=:title WHERE id=:id';
 
 $info = [
-    ':id' => 5,
+    ':id' => '5',
     ':title' => 'Измененный заголовок',
 ];
 

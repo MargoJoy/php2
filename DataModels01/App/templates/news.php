@@ -10,11 +10,11 @@
 <body>
 <h1>Последние новости</h1>
 
-<?php foreach ($news as $line){ ?>
-    <a href="/article.php?id=<?php echo $line->id; ?>">
-        <?php echo $line->title;?>
+<?php foreach ($news as $article){ ?>
+    <a href="/article.php?id=<?php echo $article->id; ?>">
+        <?php echo $article->title;?>
     </a>
-    <p><?php echo $line->text;?></p>
+    <p><?php echo $article->text;?></p>
 <?php } ?>
 
 </body>

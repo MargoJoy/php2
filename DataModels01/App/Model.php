@@ -1,6 +1,7 @@
 <?php
 namespace App;
 
+
 abstract class Model
 {
     protected const TABLE = null;
@@ -25,4 +26,6 @@ abstract class Model
             return false;
         }
     }
+
+
 }

@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<h3><?php echo $news->title;?></h3>
-<p><?php echo $news->text; ?></p>
+<h3><?php echo $article->title;?></h3>
+<p><?php echo $article->text; ?></p>
 </body>
 </html>

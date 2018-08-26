@@ -15,7 +15,7 @@ class Article extends Model
     public $text;
     public $author;
 
-    public static function findNews($params = [])
+    public static function findNews(int $params)
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::TABLE . ' ORDER BY id DESC LIMIT ' . $params;
