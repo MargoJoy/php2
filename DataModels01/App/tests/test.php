@@ -1,33 +1,24 @@
 <?php
 require __DIR__ . '/../../autoload.php';
+
 $db = new \App\Db();
 
+$query = 'INSERT INTO persons (dept, lastname, age) VALUES (:dept, :lastname, :age)';
+$params = [':dept' => 1, ':lastname' => 'Пупкин', ':age' => 23];
 
-$sql = 'SELECT * FROM news.news WHERE id=:id';
-$data = [':id' => 2];
+$testInsert = $db->execute($query, $params);
 
-var_dump($db->query($sql, $data,\App\Db::class));
+var_dump($testInsert);
 
-$info = [
-    ':title' => 'Новый заголовок',
-    ':text' => 'Новый текст',
-    ':author' => 'Новое имя автора',
-];
 
-$db->execute($query, $info);
+$query = 'UPDATE persons SET lastname=:lastname WHERE id=:id';
+$params = [':lastname' => 'Дудкин', ':id' => 13];
 
-//----------------------
+$testUpdate = $db->execute($query, $params);
 
-$query = 'UPDATE news.news SET title=:title WHERE id=:id';
+var_dump($testUpdate);
 
-$info = [
-    ':id' => '5',
-    ':title' => 'Измененный заголовок',
-];
+$person = \App\Models\Person::findById(5);
 
-var_dump($db->execute($query, $info));
-
-//----------------------
-var_dump($db->query('SELECT * FROM news.news', [],\App\Db::class));
-
+var_dump($person);
 

@@ -2,24 +2,21 @@
 
 namespace App\Models;
 
-
 use App\Db;
 use App\Model;
 
 class Article extends Model
 {
-    protected const TABLE = 'news';
-
-    public $id;
     public $title;
     public $text;
     public $author;
 
-    public static function findNews(int $params)
+    protected static $table = 'news';
+
+    public function findLast(int $params)
     {
         $db = new Db();
-        $sql = 'SELECT * FROM ' . static::TABLE . ' ORDER BY id DESC LIMIT ' . $params;
-        return $db->query($sql, [], self::class);
+        $sql = 'SELECT * FROM '. static::$table .' ORDER BY id DESC LIMIT ' . $params;
+        return $db->query($sql,static::class);
     }
-
 }
