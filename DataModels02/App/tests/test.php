@@ -1,33 +1,65 @@
 <?php
+
+use App\Models\Person;
+
 require __DIR__ . '/../../autoload.php';
-$db = new \App\Db();
+
+/*$db = new \App\Db();
+
+$query = 'INSERT INTO persons (dept, lastname, age) VALUES (:dept, :lastname, :age)';
+$params = [':dept' => 1, ':lastname' => 'Пупкин', ':age' => 23];
+
+$testInsert = $db->execute($query, $params);
+
+var_dump($testInsert);
 
 
-$sql = 'SELECT * FROM news.news WHERE id=:id';
-$data = [':id' => 2];
+$query = 'UPDATE persons SET lastname=:lastname WHERE id=:id';
+$params = [':lastname' => 'Дудкин', ':id' => 13];
 
-var_dump($db->query($sql, $data,\App\Db::class));
+$testUpdate = $db->execute($query, $params);
 
-$info = [
-    ':title' => 'Новый заголовок',
-    ':text' => 'Новый текст',
-    ':author' => 'Новое имя автора',
-];
+var_dump($testUpdate);
 
-$db->execute($query, $info);
+$person = \App\Models\Person::findById(5);
 
-//----------------------
+var_dump($person);*/
 
-$query = 'UPDATE news.news SET title=:title WHERE id=:id';
+//findAll()
+$person = Person::findAll();
 
-$info = [
-    ':id' => '5',
-    ':title' => 'Измененный заголовок',
-];
+var_dump($person);
 
-var_dump($db->execute($query, $info));
+//Config
+$config = new \App\Config;
 
-//----------------------
-var_dump($db->query('SELECT * FROM news.news', [],\App\Db::class));
+var_dump($config->data['db']['host']);
 
+//update
 
+/*$person = Person::findById(4);
+
+$person->lastname = 'Онегина';
+$person->age = '20';
+$person->dept = 3;
+
+$person->update();
+
+var_dump($person);*/
+
+//save
+
+/*$person = Person::findById(3);
+
+$person->lastname = 'Демидов';
+$person->age = '34';
+$person->dept = 1;
+
+$person->save();
+
+var_dump($person);*/
+
+//delete
+
+/*$persons = Person::findById(5);
+$persons->delete();*/

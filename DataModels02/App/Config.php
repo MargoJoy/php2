@@ -1,5 +1,4 @@
 <?php
-
 namespace App;
 
 
@@ -13,12 +12,16 @@ class Config
         $this->data = include __DIR__ . '/data/config.php';
     }
 
+    private function __clone () {}
+    private function __wakeup () {}
+
     public static function getInstance()
     {
-        if (null === self::$instance) {
-            self::$instance = new self;
+        if (self::$instance != null) {
+            return self::$instance;
         }
-        return self::$instance;
+        return new self;
     }
+
 
 }
