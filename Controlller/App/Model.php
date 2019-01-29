@@ -14,8 +14,7 @@ abstract class Model
 
         return $db->query($sql , static::class);
     }
-
-
+    
     /**
      * @param int $id
      * @return bool|object

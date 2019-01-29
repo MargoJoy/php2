@@ -10,11 +10,17 @@ class Update extends Controller
 
     public function action()
     {
-        $article = \App\Models\Article::findById($_GET['id']);
+        if (!empty($_GET['id'])){
+            $article = \App\Models\Article::findById($_GET['id']);
 
-        $this->view->article = $article;
+            $this->view->article = $article;
 
-        echo $this->view->render( __DIR__ . '/../Templates/update.php');
+            echo $this->view->render( __DIR__ . '/../Templates/update.php');
+        } else {
+            header('Location: /insert');
+            exit;
+        }
+
     }
 }
 

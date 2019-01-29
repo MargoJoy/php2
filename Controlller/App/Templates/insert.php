@@ -8,10 +8,10 @@
     <title>Добавить новость</title>
 </head>
 <body>
-<a href="/?ctrl=Admin">Админ-панель</a><hr>
+<a href="/admin">Админ-панель</a><hr>
 <h2>Добавить новость</h2>
 
-<form action="/?ctrl=InsertArticle" method="post">
+<form action="/admin.php/adminChange/insert" method="post">
     <label for=""><input type="text" name="title" placeholder="Заголовок"></label><br>
     <label for=""><input type="text" name="text" placeholder="Текст"></label><br>
     <label for=""><input type="submit"></label>

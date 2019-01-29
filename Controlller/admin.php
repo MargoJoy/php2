@@ -1,23 +1,23 @@
 <?php
 use App\Controller;
+
 require __DIR__ . '/autoload.php';
 
+$uri = $_SERVER['REQUEST_URI'];
 
-$name = $_GET['ctrl'] ?? 'Admin';
+$parts = explode('/', $uri);
 
-var_dump($_GET['ctrl']);
+$name = !empty($parts[2]) ? ucfirst($parts[2]): 'admin';
 
-if ($_GET['ctrl'] == 'Admin' && $_GET['act'] == 'Insert') {
-    echo 'good';
-}
-
-
-var_dump($name);
 $class = '\App\Controllers\\' . $name;
-var_dump($class);
+$act = $parts[3];
+$_GET['id'] = $parts[4];
 
 /**
  * @var Controller $ctrl
  */
 $ctrl = new $class;
-$ctrl->dispatch();
+$ctrl->$act();
+
+
+

@@ -9,15 +9,15 @@
 </head>
 <body>
 <a href="/">Главная</a><hr>
-<a href="/?ctrl=Insert">Добавить новость</a><hr>
+<a href="/insert">Добавить новость</a><hr>
 <?php foreach ($news as $article) :?>
     <h2><?php echo $article->title; ?></h2>
     <p><?php echo $article->text; ?></p>
     <p><?php echo $article->author->name ?? 'Аноним'; ?></p>
 
-    <a href="/?ctrl=Update&id=<?php echo $article->id; ?>">Редактировать</a>
+    <a href="/update/<?php echo $article->id; ?>">Редактировать</a>
     <span>|</span>
-    <a href="/?ctrl=Delete&id=<?php echo $article->id; ?>">Удалить</a><hr>
+    <a href="/admin.php/adminChange/delete/<?php echo $article->id; ?>">Удалить</a><hr>
 <?php endforeach;?>
 </body>
 </html>

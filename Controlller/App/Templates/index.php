@@ -9,10 +9,10 @@
 </head>
 <body>
 
-<a href="/?ctrl=Admin">Админ-панель</a><hr>
+<a href="/admin">Админ-панель</a><hr>
 
 <?php foreach ($news as $article) : ?>
-    <h2><a href="/?ctrl=Article&id=<?php echo $article->id; ?>"><?php echo $article->title; ?></a></h2>
+    <h2><a href="/article/<?php echo $article->id; ?>"><?php echo $article->title; ?></a></h2>
     <p><?php echo $article->text; ?></p>
 
     <p><?php echo $article->author->name ?? 'Аноним'; ?></p>

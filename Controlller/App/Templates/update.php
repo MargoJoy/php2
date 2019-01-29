@@ -8,14 +8,14 @@
     <title>Изменение новости</title>
 </head>
 <body>
-<a href="/?ctrl=Admin">Админ-панель</a><hr>
+<a href="/admin">Админ-панель</a><hr>
 <h2>Изменить новость</h2>
 
 <h2><?php echo $article->title; ?></h2>
 <p><?php echo $article->text; ?></p>
 <p><?php echo $article->author->name ?? 'Аноним'; ?></p>
 
-<form action="/?ctrl=UpdateArticle" method="post">
+<form action="/admin.php/AdminChange/update" method="post">
     <label for=""><input type="text" name="title" placeholder="Заголовок"></label><br>
     <label for=""><input type="text" name="text" placeholder="Текст"></label><br>
     <label for=""><input type="hidden" name="id" value="<?php echo $article->id; ?>"></label><br>

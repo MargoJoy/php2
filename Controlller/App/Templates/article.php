@@ -8,7 +8,7 @@
     <title>Статья</title>
 </head>
 <body>
-<a href="/index.php">Главная</a><hr>
+<a href="/index">Главная</a><hr>
 
 <h2>Статья</h2>
 

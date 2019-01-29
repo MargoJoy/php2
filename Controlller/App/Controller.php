@@ -11,8 +11,8 @@ abstract class Controller
     {
         $this->view = new View();
     }
-    
-    protected function access() : bool 
+
+    protected function access() : bool
     {
         return true;
     }
