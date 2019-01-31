@@ -1,6 +1,9 @@
 <?php
 use App\Controller;
 use App\DbException;
+use App\Exception404;
+use App\Logger;
+use App\MultiException;
 
 require __DIR__ . '/autoload.php';
 
@@ -21,8 +24,29 @@ $ctrl = new $class;
 
 try {
     $ctrl->$act();
-  } catch (DbException $exception) {
-    var_dump($exception->getMessage());
+
+  } catch (DbException | Exception404 $exception) {
+    $logger = new Logger();
+    $logger->append($exception);
+    $logger->save();
+
+    $ctrl = new \App\Controllers\Exception();
+    $ctrl->exception = $exception->getMessage();
+    $ctrl->dispatch();
+
+} catch (MultiException $exceptions) {
+    $ctrl = new \App\Controllers\Exception();
+    $messages = [];
+
+    foreach ($exceptions->all() as $exception) {
+        $logger = new Logger();
+        $logger->append($exception);
+        $logger->save();
+
+        $messages[] = $exception->getMessage();
+    }
+    $ctrl->exception = $messages;
+    $ctrl->dispatch();
 }
 
 

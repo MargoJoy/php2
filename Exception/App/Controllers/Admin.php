@@ -9,6 +9,9 @@ class Admin extends Controller
 {
 
 
+    /**
+     * @throws \App\DbException
+     */
     public function action()
     {
         $this->view->news = \App\Models\Article::findAll();

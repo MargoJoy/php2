@@ -5,51 +5,71 @@ namespace App\Controllers;
 
 
 use App\DbException;
+use App\Exception404;
 
 class AdminChange extends \App\Admin
 {
 
 
+    /**
+     * @throws DbException
+     * @throws \App\MultiException
+     */
     public function insert()
     {
-        if ( !empty($_POST['title']) && !empty($_POST['text']) ) {
+
+        if ( !empty($_POST)) {
             $article = new \App\Models\Article();
-
-
 
             $article->title = $_POST['title'];
             $article->text = $_POST['text'];
-
+            $article->fill($_POST);
             $article->save();
 
             header('Location: /admin');
-        } else {
-            header('Location: /insert');
+            exit;
         }
     }
 
+    /**
+     * @throws DbException
+     * @throws Exception404
+     */
     public function update()
     {
-        if ( !empty($_POST['title']) && !empty($_POST['text']) ) {
+        if ( !empty($_POST)) {
 
             $article = \App\Models\Article::findById($_POST['id']);
 
-            $article->title = $_POST['title'];
-            $article->text = $_POST['text'];
+            if (!$article  && !is_int($_GET['id'])) {
+                throw new Exception404('Запись не найдена');
+            } else {
 
-            $article->save();
+                $article->title = $_POST['title'];
+                $article->text = $_POST['text'];
 
-            header('Location: /admin');
-        } else {
-            header('Location: /update/?id=' . $_POST['id']);
+                $article->fill($_POST);
+                $article->save();
+
+                header('Location: /admin');
+            }
         }
     }
 
+    /**
+     * @throws DbException
+     * @throws Exception404
+     */
     public function delete()
     {
         if (!empty($_GET['id'])) {
             $article = \App\Models\Article::findById($_GET['id']);
-            $article->delete();
+
+            if (!$article && !is_int($_GET['id'])) {
+                throw new Exception404('Запись не найдена');
+            } else {
+                $article->delete();
+            }
         }
 
         header('Location: /admin');

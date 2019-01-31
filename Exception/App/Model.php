@@ -24,7 +24,7 @@ abstract class Model
      * @return bool|object
      * @throws DbException
      */
-    public static function findById(int $id)
+    public static function findById($id)
     {
         $db = new Db();
         $sql = 'SELECT * FROM ' . static::$table . ' WHERE id = :id';
@@ -46,6 +46,9 @@ abstract class Model
     }
 
 
+    /**
+     * @throws DbException
+     */
     public function insert()
     {
         $properties = get_object_vars($this);
@@ -71,6 +74,9 @@ abstract class Model
         $this->id = $db->lastInsertId();
     }
 
+    /**
+     * @throws DbException
+     */
     public function  update()
     {
         $properties = get_object_vars($this);
@@ -90,11 +96,13 @@ abstract class Model
         $sql = 'UPDATE ' . static::$table . ' SET ' . implode(', ', $cols) . ' WHERE id=:id';
 
         $db = new Db();
-
         $db->execute($sql, $data);
 
     }
 
+    /**
+     * @throws DbException
+     */
     public function save()
     {
         if (!$this->isNew()) {
@@ -104,11 +112,35 @@ abstract class Model
         }
     }
 
+    /**
+     * @throws DbException
+     */
     public function delete()
     {
         $sql = 'DELETE FROM ' . static::$table . ' WHERE id=:id';
         $id = [':id' => $this->id];
         $db = new Db();
         $db->execute($sql, $id);
+    }
+
+    /**
+     * @param array $data
+     * @throws MultiException
+     */
+    public function fill(array $data)
+    {
+        $errors = new MultiException();
+
+        if (empty($data['title'])){
+            $errors->add(new \Exception('Вы не ввели заголовок '));
+        }
+        if (empty($data['text'])) {
+            $errors->add(new \Exception('Вы не ввели текст новости'));
+        }
+        if (!$errors->empty()){
+            throw $errors;
+
+        }
+        return true;
     }
 }

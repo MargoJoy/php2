@@ -9,6 +9,9 @@ use App\Models\Article;
 class Index extends Controller
 {
 
+    /**
+     * @throws \App\DbException
+     */
     public function action()
     {
         $this->view->news = (new Article())->findLast(3);

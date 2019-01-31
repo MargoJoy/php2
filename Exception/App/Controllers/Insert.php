@@ -10,6 +10,7 @@ class Insert extends Controller
 
     public function action()
     {
+
         echo $this->view->render(__DIR__ . '/../Templates/insert.php');
     }
 }

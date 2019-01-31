@@ -22,7 +22,7 @@ class Db
                 $config->data['db']['password']
             );
         } catch (\PDOException $exception) {
-            throw new DbException('Что то пошло не так с подключением');
+            throw new DbException(' Что то пошло не так с подключением');
         }
     }
 
