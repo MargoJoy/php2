@@ -14,16 +14,18 @@ $class = '\App\Controllers\\' . $name;
 $act = $parts[3];
 $_GET['id'] = $parts[4];
 
+/**
+ * @var Controller $ctrl
+ */
+$ctrl = new $class;
 
 try {
-    /**
-     * @var Controller $ctrl
-     */
-    $ctrl = new $class;
     $ctrl->$act();
-} catch (DbException $exception) {
-    var_dump($exception);
+  } catch (DbException $exception) {
+    var_dump($exception->getMessage());
 }
+
+
 
 
 

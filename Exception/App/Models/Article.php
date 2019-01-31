@@ -25,6 +25,11 @@ class Article extends Model
         return null;
     }
 
+    /**
+     * @param int $params
+     * @return array
+     * @throws \App\DbException
+     */
     public function findLast(int $params)
     {
         $db = new Db();

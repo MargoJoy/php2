@@ -22,7 +22,8 @@ try {
     $ctrl = new $class;
     $ctrl->dispatch();
 } catch (DbException $exception) {
-    var_dump($exception);
+
+    var_dump($exception->getMessage());
 }
 
 

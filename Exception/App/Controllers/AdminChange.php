@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 
+
 use App\DbException;
 
 class AdminChange extends \App\Admin
@@ -14,18 +15,17 @@ class AdminChange extends \App\Admin
         if ( !empty($_POST['title']) && !empty($_POST['text']) ) {
             $article = new \App\Models\Article();
 
+
+
             $article->title = $_POST['title'];
             $article->text = $_POST['text'];
 
-            try {
-                $article->save();
-            } catch (DbException $exception) {
-                var_dump($exception);
-            }
-            //header('Location: /admin');
-        } //else {
-            //header('Location: /insert');
-        //}
+            $article->save();
+
+            header('Location: /admin');
+        } else {
+            header('Location: /insert');
+        }
     }
 
     public function update()

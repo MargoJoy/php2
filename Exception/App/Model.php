@@ -22,6 +22,7 @@ abstract class Model
     /**
      * @param int $id
      * @return bool|object
+     * @throws DbException
      */
     public static function findById(int $id)
     {
@@ -44,9 +45,7 @@ abstract class Model
         return null === $this->id;
     }
 
-    /**
-     * @throws DbException
-     */
+
     public function insert()
     {
         $properties = get_object_vars($this);
@@ -65,7 +64,7 @@ abstract class Model
             $data[':' . $name] = $value;
         }
 
-        $sql = 'INSERT INTO' . static::$table . ' (' . implode(', ', $cols) . ') VALUES (' . implode(', ', $brind) . ')';
+        $sql = 'INSERT INTO ' . static::$table . ' (' . implode(', ', $cols) . ') VALUES (' . implode(', ', $brind) . ')';
 
         $db = new Db();
         $db->execute($sql, $data);
@@ -88,7 +87,7 @@ abstract class Model
             $cols[] = $name . '=:' . $name;
         }
 
-        $sql = 'UPDATE' . static::$table . ' SET ' . implode(', ', $cols) . ' WHERE id=:id';
+        $sql = 'UPDATE ' . static::$table . ' SET ' . implode(', ', $cols) . ' WHERE id=:id';
 
         $db = new Db();
 

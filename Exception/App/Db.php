@@ -6,6 +6,10 @@ class Db
     protected $dbh;
 
 
+    /**
+     * Db constructor.
+     * @throws DbException
+     */
     public function __construct()
     {
         $config = Config::getInstance();
@@ -18,7 +22,7 @@ class Db
                 $config->data['db']['password']
             );
         } catch (\PDOException $exception) {
-            var_dump($exception->getMessage());
+            throw new DbException('Что то пошло не так с подключением');
         }
     }
 
@@ -35,9 +39,10 @@ class Db
 
         if (!$sth->execute($params)) {
             throw new DbException(' Что то пошло не так с запросом');
+        } else {
+            return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
         }
 
-        return $sth->fetchAll(\PDO::FETCH_CLASS, $class);
     }
 
     /**
@@ -50,8 +55,10 @@ class Db
     {
         if (!$sth = $this->dbh->prepare($query)) {
             throw new DbException(' Что-то пошло не так с запросом');
+        } else {
+            return $sth->execute($params);
         }
-        return $sth->execute($params);
+
     }
 
     public function lastInsertId()
