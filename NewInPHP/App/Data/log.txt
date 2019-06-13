@@ -1,0 +1,36 @@
+2019-01-31T19:09:04+03:00|F:\OSPanel\domains\Exception\App\Db.php| Что то пошло не так с запросом
+2019-01-31T19:09:14+03:00|F:\OSPanel\domains\Exception\App\Db.php| Что то пошло не так с запросом
+2019-01-31T19:09:33+03:00|F:\OSPanel\domains\Exception\App\Db.php| Что то пошло не так с запросом
+2019-01-31T19:09:54+03:00|F:\OSPanel\domains\Exception\App\Db.php|Что то пошло не так с подключением
+2019-01-31T19:12:03+03:00|F:\OSPanel\domains\Exception\App\Model.php|Вы не ввели заголовок 
+2019-01-31T19:12:03+03:00|F:\OSPanel\domains\Exception\App\Model.php|Вы не ввели текст новости
+2019-01-31T19:12:27+03:00|F:\OSPanel\domains\Exception\App\Model.php|Вы не ввели заголовок 
+2019-01-31T19:12:27+03:00|F:\OSPanel\domains\Exception\App\Model.php|Вы не ввели текст новости
+2019-01-31T19:12:54+03:00|F:\OSPanel\domains\Exception\App\Model.php|Вы не ввели текст новости
+2019-01-31T19:15:13+03:00|F:\OSPanel\domains\Exception\App\Model.php|Вы не ввели текст новости
+2019-02-09T13:34:53+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T13:47:11+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T13:47:28+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T13:51:09+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T13:51:10+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T13:55:56+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T13:55:59+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T13:56:00+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T13:56:03+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T13:56:35+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с запросом
+2019-02-09T13:56:43+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с запросом
+2019-02-09T13:58:49+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T14:11:35+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T14:13:22+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T14:13:27+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T14:13:49+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с запросом
+2019-02-09T14:13:50+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с запросом
+2019-02-09T14:14:38+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с запросом
+2019-02-09T14:14:39+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с запросом
+2019-02-09T14:24:14+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T14:24:24+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T14:25:02+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T14:35:47+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T14:39:00+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T14:39:58+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
+2019-02-09T14:46:10+03:00|F:\OSPanel\domains\PSR\App\Db.php| Что то пошло не так с подключением
